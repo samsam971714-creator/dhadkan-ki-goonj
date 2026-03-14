@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.13 0.02 265;
+    --foreground: 0.97 0.005 265;
+    --card: 0.16 0.025 265;
+    --card-foreground: 0.95 0.005 265;
+    --popover: 0.16 0.025 265;
+    --popover-foreground: 0.95 0.005 265;
+    --primary: 0.62 0.22 15;
+    --primary-foreground: 0.98 0.005 15;
+    --secondary: 0.55 0.18 240;
+    --secondary-foreground: 0.98 0.005 240;
+    --muted: 0.22 0.025 265;
+    --muted-foreground: 0.65 0.03 265;
+    --accent: 0.62 0.22 15;
+    --accent-foreground: 0.98 0.005 15;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.28 0.03 265;
+    --input: 0.22 0.025 265;
+    --ring: 0.62 0.22 15;
+    --radius: 1rem;
+    --chart-1: 0.62 0.22 15;
+    --chart-2: 0.55 0.18 240;
+    --chart-3: 0.7 0.2 145;
+    --chart-4: 0.65 0.18 55;
+    --chart-5: 0.6 0.22 300;
+    --sidebar: 0.14 0.02 265;
+    --sidebar-foreground: 0.95 0.005 265;
+    --sidebar-primary: 0.62 0.22 15;
+    --sidebar-primary-foreground: 0.98 0.005 15;
+    --sidebar-accent: 0.2 0.025 265;
+    --sidebar-accent-foreground: 0.95 0.005 265;
+    --sidebar-border: 0.28 0.03 265;
+    --sidebar-ring: 0.62 0.22 15;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Hind", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Playfair Display", serif;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .ai-glow {
+    box-shadow: 0 0 20px oklch(0.62 0.22 15 / 0.35), 0 0 40px
+      oklch(0.62 0.22 15 / 0.15);
+    border: 1px solid oklch(0.62 0.22 15 / 0.5);
+  }
+
+  .siya-glow {
+    box-shadow: 0 0 20px oklch(0.55 0.18 240 / 0.35), 0 0 40px
+      oklch(0.55 0.18 240 / 0.15);
+    border: 1px solid oklch(0.55 0.18 240 / 0.5);
+  }
+
+  .scene-card {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60% {
+    content: "...";
+  }
+  80%,
+  100% {
+    content: "";
+  }
+}
+
+.scene-animate {
+  animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.scene-animate-delay-1 {
+  animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+.scene-animate-delay-2 {
+  animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+  opacity: 0;
+}
+
+.scene-animate-delay-3 {
+  animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+  opacity: 0;
+}
+
+.chat-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: oklch(0.35 0.04 265);
+  border-radius: 999px;
+}
